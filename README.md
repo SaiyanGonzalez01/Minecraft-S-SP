@@ -65,3 +65,8 @@ The LWJGL runtime is no longer supported it is only included for reference
 - When you are done, navigate to [epkcompiler/](https://github.com/lax1dude/eaglercraft/tree/main/epkcompiler) and double-click `run.bat`. Wait for the window to say `Press any key to continue...` and close it. Then, go to `../javascript` in the repository and copy `javascript/assets.epk` to the `assets.epk` on your website
 - If you're on mac or linux, navigate to the epkcompiler folder via `cd` and run `chmod +x run_unix.sh` and then `./run_unix.sh` to do this, then copy the same `javascript/assets.epk` to the `assets.epk` on your website
 
+## Project Credits
+
+- Saiyan Gonzalez; Project Creator
+- Lax1dude; Eaglercraft Creator
+- Ayunmani2000; Assisted the SP update
