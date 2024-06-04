@@ -10,13 +10,6 @@ Minecraft 1.5.2 S-SP will add new features to your game.
 
 Minecraft 1.5.2 S-SP, or "Special Service Pack" is modification that will add new features to 1.5.2, and also make new updates to the game.
 
-# Singleplayer
-
-Simply press the 'Singleplayer' button on the main menu and you can create a regular vanilla minecraft and play it any time.
-
-## Importing and Exporting Worlds
-The worlds are stored in your browser's local storage, **you can export them as EPK files and import them again on all other Eaglercraft sites that also support singleplayer.** You can even copy an exported world to an entirely different computer, or send it to a friend, and import it and continue playing with all your progress saved.
-
 # Creating your own server
 
 There are ***multiple parts*** **to a server**, mainly consisting of a **regular 1.5.2 Bukkit server**, and a **modified version of Bungeecord** called **EaglercraftBungee**, which on top of the regular Bungeecord functionality, it translates WebSocket connections to raw TCP connections which Bukkit can understand.
