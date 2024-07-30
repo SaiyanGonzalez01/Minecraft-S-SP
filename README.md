@@ -8,7 +8,7 @@
 :-:
 Minecraft 1.5.2 S-SP will add new features to your game.
 
-Minecraft 1.5.2 S-SP, or "Special Service Pack" is modification that will add new features to 1.5.2, and also make new updates to the game.
+Minecraft 1.5.2 S-SP, or "Special Service Pack" is modification that will add new features to 1.5.2, and also make new updates to the game. Note that the changes in this version will have to be compiled by you using the `run.bat`.
 
 # Creating your own server
 
