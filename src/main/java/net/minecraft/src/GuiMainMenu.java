@@ -86,7 +86,7 @@ public class GuiMainMenu extends GuiScreen {
 				this.splashText = "missingno";
 			}
 		}
-		this.field_92025_p = "Eaglercraft 1.5.2 Service Pack #1";
+		this.field_92025_p = "Minecraft Special-Service Pack";
 		this.start = System.currentTimeMillis();
 		this.start += this.start % 10000l;
 		this.ackLines = new ArrayList();
