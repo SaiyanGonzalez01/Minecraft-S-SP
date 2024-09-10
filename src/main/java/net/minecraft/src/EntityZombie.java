@@ -157,7 +157,7 @@ public class EntityZombie extends EntityMob {
 	}
 
 	protected void dropRareDrop(int par1) {
-		switch (this.rand.nextInt(3)) {
+		switch (this.rand.nextInt(4)) {
 		case 0:
 			this.dropItem(Item.ingotIron.itemID, 1);
 			break;
@@ -168,6 +168,10 @@ public class EntityZombie extends EntityMob {
 
 		case 2:
 			this.dropItem(Item.potato.itemID, 1);
+
+		case 3:
+			this.dropItem(Item.apple.itemID, 1);
+
 		}
 	}
 
