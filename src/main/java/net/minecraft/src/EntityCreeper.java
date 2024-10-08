@@ -40,7 +40,7 @@ public class EntityCreeper extends EntityMob {
 	}
 
 	public int getMaxHealth() {
-		return 20;
+		return 15;
 	}
 
 	protected void entityInit() {
