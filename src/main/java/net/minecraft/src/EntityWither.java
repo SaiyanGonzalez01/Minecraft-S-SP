@@ -290,7 +290,7 @@ public class EntityWither extends EntityMob implements IBossDisplayData, IRanged
 	 * InventoryPlayer.getTotalArmorValue
 	 */
 	public int getTotalArmorValue() {
-		return 4;
+		return 8;
 	}
 
 	private double func_82214_u(int par1) {
