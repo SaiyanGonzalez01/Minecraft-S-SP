@@ -7,9 +7,10 @@ public class ConfigConstants {
 	public static boolean profanity = false;
 
 	public static final String version = "22w43a";
-	public static final String mainMenuString = "eaglercraft " + version;
+	public static final String mainMenuString = "Eaglercraft " + version;
 	
-	public static final String forkMe = "https://github.com/lax1dude/eaglercraft";
+	public static final String forkMe = "https://github.com/SaiyanGonzalez01/Minecraft-S-SP";
+	public static final String forkMe2 = "https://github.com/SaiyanGonzalez01/Minecraft-Old-School-ReDefault";
 
 	public static final boolean html5build = true;
 	
