@@ -16,7 +16,7 @@ public class EntitySkeleton extends EntityMob implements IRangedAttackMob {
 	 * Returns true if the newer Entity AI code should be run
 	 */
 	public boolean isAIEnabled() {
-		return true;
+		return false;
 	}
 
 	public int getMaxHealth() {
