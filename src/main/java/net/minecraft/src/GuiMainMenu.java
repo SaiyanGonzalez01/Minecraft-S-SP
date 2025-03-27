@@ -289,7 +289,7 @@ public class GuiMainMenu extends GuiScreen {
 
 		if (par1GuiButton.id == 5) {
 			showingEndian = false;
-			this.mc.displayGuiScreen(new GuiPromo(this));
+			EaglerAdapter.openLink(ConfigConstants.forkMe2);
 		}
 
 		if (par1GuiButton.id == 2) {
