@@ -6,21 +6,15 @@
 :-:
 Minecraft S-SP (Special Service Pack) Is a mod of Eaglercraft 1.5.2 that adds new features and gimmicks to your game for you to enjoy!
 
-**Currently maintained by [ayunami2000](https://github.com/ayunami2000)**
+**Created by [Saiyan Gonzalez](https://github.com/SaiyanGonzalez01/)**
 
-**For any questions you can join the discord server and hit us up there [https://discord.gg/Ekzcgs3DKZ](https://discord.gg/Ekzcgs3DKZ)**
+A lightweight mod that adds a few new features that retain the regular experience of Minecraft.
 
 # Quick Start
 
-### Client: [https://g.deev.is/eaglercraft/](https://g.deev.is/eaglercraft/) [^1]
-
-### Offline Client Download: [Offline_Download_Version.html](https://github.com/lax1dude/eaglercraft/raw/main/stable-download/Offline_Download_Version.html)
-
-**(right click the link and press 'Save link as...' to download the file)**
+### Javascript Files: <null>
 
 ### Play Minecraft Beta Singleplayer: [https://g.deev.is/eaglercraft/beta/](https://g.deev.is/eaglercraft/beta/)
-
-[^1]: A list of public servers are already added into the official client
 
 # Table Of Contents:
 | [Singleplayer](#Singleplayer)                                 | [Multiplayer](#Multiplayer)                                                     | [Others](#Others)                                     |
