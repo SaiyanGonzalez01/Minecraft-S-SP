@@ -28,6 +28,6 @@ public class ConfigConstants {
 
 	public static boolean eaglercraftTitleLogo = false;
 
-	public static boolean panoramaBlur = true;
+	public static boolean panoramaBlur = false;
 	
 }
