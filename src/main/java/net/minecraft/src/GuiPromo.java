@@ -1,113 +1,68 @@
-package net.minecraft.src;
+package net.lax1dude.eaglercraft;
+
+import net.minecraft.src.GuiButton;
+import net.minecraft.src.GuiCreateWorld;
+import net.minecraft.src.GuiScreen;
+import net.minecraft.src.StringTranslate;
 
 public class GuiPromo extends GuiScreen2 {
-	/**
-	 * An array of options that can be changed directly from the options GUI.
-	 */
-	/**
-	 * A reference to the screen object that created this. Used for navigating
-	 * between screens.
-	 */
-	private final GuiScreen2 parentScreen;
 
-	/** Reference to the GameSettings object. */
-	private final GameSettings options;
-
-	/** The title string that is displayed in the top-center of the screen. */
-	protected String screenTitle = "Test, Please dont Touch!";
-
-	public GuiOptions(GuiScreen par1GuiScreen, GameSettings par2GameSettings) {
-		this.parentScreen = par1GuiScreen;
-		this.options = par2GameSettings;
+	private GuiScreen mainmenu;
+	private GuiButton worldCreate = null;
+	private GuiButton worldImport = null;
+	private GuiButton worldVanilla = null;
+	private boolean isImportingEPK = false;
+	private boolean isImportingMCA = false;
+	
+	public GuiScreenCreateWorldSelection(GuiScreen mainmenu) {
+		this.mainmenu = mainmenu;
 	}
-
-	/**
-	 * Adds the buttons (and other controls) to the screen in question.
-	 */
+	
 	public void initGui() {
 		StringTranslate var1 = StringTranslate.getInstance();
-		int var2 = 0;
-		this.screenTitle = var1.translateKey("promo.title");
-		EnumOptions[] var3 = relevantOptions;
-		int var4 = var3.length;
-
-		for (int var5 = 0; var5 < var4; ++var5) {
-			EnumOptions var6 = var3[var5];
-
-			if (var6.getEnumFloat()) {
-				this.buttonList.add(new GuiSlider(var6.returnEnumOrdinal(), this.width / 2 - 155 + var2 % 2 * 160, this.height / 6 - 12 + 24 * (var2 >> 1), var6, this.options.getKeyBinding(var6), this.options.getOptionFloatValue(var6)));
-			} else {
-				GuiSmallButton var7 = new GuiSmallButton(var6.returnEnumOrdinal(), this.width / 2 - 155 + var2 % 2 * 160, this.height / 6 - 12 + 24 * (var2 >> 1), var6, this.options.getKeyBinding(var6));
-
-				if (var6 == EnumOptions.DIFFICULTY && this.mc.theWorld != null && this.mc.theWorld.getWorldInfo().isHardcoreModeEnabled()) {
-					var7.enabled = false;
-					var7.displayString = StatCollector.translateToLocal("options.difficulty") + ": " + StatCollector.translateToLocal("options.difficulty.hardcore");
-				}
-
-				this.buttonList.add(var7);
-			}
-
-			++var2;
-		}
-
-		GuiButton b, b2;
-
-		this.buttonList.add(new GuiButton(101, this.width / 2 - 152, this.height / 6 + 96 - 6, 150, 20, var1.translateKey("options.video")));
-		this.buttonList.add(new GuiButton(100, this.width / 2 + 2, this.height / 6 + 96 - 6, 150, 20, var1.translateKey("options.controls")));
-		this.buttonList.add(new GuiButton(102, this.width / 2 - 152, this.height / 6 + 120 - 6, 150, 20, var1.translateKey("options.language")));
-		this.buttonList.add(new GuiButton(103, this.width / 2 + 2, this.height / 6 + 120 - 6, 150, 20, var1.translateKey("options.multiplayer.title")));
-		this.buttonList.add(b = new GuiButton(105, this.width / 2 - 152, this.height / 6 + 144 - 6, 150, 20, var1.translateKey("options.texture.pack")));
-		this.buttonList.add(b2 = new GuiButton(104, this.width / 2 + 2, this.height / 6 + 144 - 6, 150, 20, var1.translateKey("options.snooper.view")));
-		this.buttonList.add(new GuiButton(200, this.width / 2 - 100, this.height / 6 + 168, var1.translateKey("gui.done")));
-		b.enabled = false;
-		b2.enabled = false;
-
+		this.buttonList.add(worldCreate = new GuiButton(1, this.width / 2 - 100, this.height / 4 + 40, var1.translateKey("selectWorld.create.create")));
+		this.buttonList.add(worldImport = new GuiButton(2, this.width / 2 - 100, this.height / 4 + 65, var1.translateKey("selectWorld.create.import")));
+		this.buttonList.add(worldVanilla = new GuiButton(3, this.width / 2 - 100, this.height / 4 + 90, var1.translateKey("selectWorld.create.vanilla")));
+		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 130, var1.translateKey("gui.cancel")));
 	}
-
-	/**
-	 * Fired when a control is clicked. This is the equivalent of
-	 * ActionListener.actionPerformed(ActionEvent e).
-	 */
-	protected void actionPerformed(GuiButton par1GuiButton) {
-		if (par1GuiButton.enabled) {
-			if (par1GuiButton.id < 100 && par1GuiButton instanceof GuiSmallButton) {
-				this.options.setOptionValue(((GuiSmallButton) par1GuiButton).returnEnumOptions(), 1);
-				par1GuiButton.displayString = this.options.getKeyBinding(EnumOptions.getEnumOptions(par1GuiButton.id));
-			}
-
-			if (par1GuiButton.id == 101) {
-				this.mc.gameSettings.saveOptions();
-				this.mc.displayGuiScreen(new GuiVideoSettings(this, this.options));
-			}
-
-			if (par1GuiButton.id == 100) {
-				this.mc.gameSettings.saveOptions();
-				this.mc.displayGuiScreen(new GuiControls(this, this.options));
-			}
-
-			if (par1GuiButton.id == 102) {
-				this.mc.gameSettings.saveOptions();
-				this.mc.displayGuiScreen(new GuiLanguage(this, this.options));
-			}
-
-			if (par1GuiButton.id == 103) {
-				this.mc.gameSettings.saveOptions();
-				this.mc.displayGuiScreen(new GuiScreenChatOptions(this, this.options));
-			}
-
-			if (par1GuiButton.id == 200) {
-				this.mc.gameSettings.saveOptions();
-				this.mc.displayGuiScreen(this.parentScreen);
-			}
+	
+	public void updateScreen() {
+		if(EaglerAdapter.getFileChooserResultAvailable() && (isImportingEPK || isImportingMCA)) {
+			this.mc.displayGuiScreen(new GuiScreenNameWorldImport(mainmenu, EaglerAdapter.getFileChooserResultName(), isImportingEPK ? 0 : (isImportingMCA ? 1 : -1)));
+			isImportingEPK = isImportingMCA = false;
 		}
 	}
-
-	/**
-	 * Draws the screen and all the components in it.
-	 */
+	
 	public void drawScreen(int par1, int par2, float par3) {
+		StringTranslate var4 = StringTranslate.getInstance();
 		this.drawDefaultBackground();
-		this.drawCenteredString(this.fontRenderer, this.screenTitle, this.width / 2, 15, 16777215);
+		
+		this.drawCenteredString(this.fontRenderer, var4.translateKey("selectWorld.create.title"), this.width / 2, this.height / 4, 16777215);
+		
+		int toolTipColor = 0xDDDDAA;
+		if(worldCreate.func_82252_a()) {
+			this.drawCenteredString(this.fontRenderer, var4.translateKey("selectWorld.create.create.tooltip"), this.width / 2, this.height / 4 + 20, toolTipColor);
+		}else if(worldImport.func_82252_a()) {
+			this.drawCenteredString(this.fontRenderer, var4.translateKey("selectWorld.create.import.tooltip"), this.width / 2, this.height / 4 + 20, toolTipColor);
+		}else if(worldVanilla.func_82252_a()) {
+			this.drawCenteredString(this.fontRenderer, var4.translateKey("selectWorld.create.vanilla.tooltip"), this.width / 2, this.height / 4 + 20, toolTipColor);
+		}
+		
 		super.drawScreen(par1, par2, par3);
 	}
+
+	protected void actionPerformed(GuiButton par1GuiButton) {
+		if(par1GuiButton.id == 0) {
+			this.mc.displayGuiScreen(mainmenu);
+		}else if(par1GuiButton.id == 1) {
+			this.mc.displayGuiScreen(new GuiCreateWorld(mainmenu));
+		}else if(par1GuiButton.id == 2) {
+			isImportingEPK = true;
+			EaglerAdapter.openFileChooser("epk", null);
+		}else if(par1GuiButton.id == 3) {
+			isImportingMCA = true;
+			EaglerAdapter.openFileChooser("zip", null);
+		}
+	}
+	
 }
